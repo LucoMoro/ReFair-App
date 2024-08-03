@@ -1,0 +1,132 @@
+:root {
+  --vt-c-indigo: #566472;
+  --vt-c-indigo-dark-1: #415161;
+  --vt-c-indigo-dark-2: #2c3e50;
+
+  --vt-c-green: #009578;
+  --vt-c-green-dark-1: #008168;
+  --vt-c-green-dark-2: #006e58;
+
+  --vt-c-red: #db3131;
+  --vt-c-red-dark-1: #d81b1b;
+  --vt-c-red-dark-2: #c21818;
+
+  --vt-c-blue: #5091cb;
+  --vt-c-blue-dark-1: #578cbb;
+  --vt-c-blue-dark-2: #4e7ea8;
+
+  --vt-c-sky: #7cb4d5;
+  --vt-c-sky-dark-1: #8bb4cb;
+  --vt-c-sky-dark-2: #6fa2bf;
+}
+
+.button {
+  display: inline-flex;
+  height: 40px;
+  padding: 0;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.button__text,
+.button__icon {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 24px;
+  color: white;
+  height: 100%;
+}
+
+/* Report button */
+
+.report {
+  background: var(--vt-c-red);
+}
+
+.report:hover {
+  background-color: var(--vt-c-red-dark-1);
+}
+
+.report:active {
+  background-color: var(--vt-c-red-dark-2);
+}
+
+/* Load button */
+
+.load {
+  background: var(--vt-c-green);
+}
+
+.load:hover {
+  background-color: var(--vt-c-green-dark-1);
+}
+
+.load:active {
+  background-color: var(--vt-c-green-dark-2);
+}
+
+/* Analyze button */
+
+.analyze {
+  background: var(--vt-c-indigo);
+}
+
+.analyze:hover {
+  background-color: var(--vt-c-indigo-dark-1);
+}
+
+.analyze:active {
+  background-color: var(--vt-c-indigo-dark-2);
+}
+
+/* Close Button */
+
+.close {
+  background: var(--vt-c-blue);
+}
+
+.close:hover {
+  background-color: var(--vt-c-blue-dark-1);
+}
+
+.close:active {
+  background-color: var(--vt-c-blue-dark-2);
+}
+
+/* Select Button */
+
+.select {
+  background: var(--vt-c-sky);
+}
+
+.select:hover {
+  background-color: var(--vt-c-sky-dark-1);
+}
+
+.select:active {
+  background-color: var(--vt-c-sky-dark-2);
+}
+
+.button__icon {
+  font-size: 1.5em;
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+.file-upload {
+  position: relative;
+  display: inline-block;
+}
+
+.form-control {
+  display: none; /* Hides the original input file */
+}
+
+.file-name {
+  margin-left: 10px;
+  font-style: italic;
+}
