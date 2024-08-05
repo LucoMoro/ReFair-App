@@ -349,7 +349,9 @@
                 <tbody>
                   <tr v-for="(features, task) in story_tasks" :key="task">
                     <td>{{ task }}</td>
-                    <td>{{ features.toString().replaceAll(",", " - ") }}</td>
+                    <td>
+                      {{ features.toString().replaceAll(",", " - ") }}
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -386,7 +388,6 @@
         </div>
       </div>
     </div>
-
     <div v-if="activeAnalyzeStoryModal" class="modal-backdrop fade show"></div>
   </div>
 </template>
