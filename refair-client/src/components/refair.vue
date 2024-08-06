@@ -155,6 +155,7 @@
               role="toolbar"
               aria-label="Toolbar with button groups"
             >
+              <!-- Upload Button-->
               <div class="file-upload">
                 <input
                   type="file"
@@ -163,22 +164,15 @@
                   @change="handleStoriesUpload($event)"
                 />
 
-                <!---->
-
                 <button type="button" class="button select">
                   <ion-icon name="document-attach-outline"></ion-icon
                   ><label for="file" class="button__text"> Select file </label
                   ><i></i>
                 </button>
-
-                <!--<button type="button" class="button select">
-                  <span class="button__icon"
-                    ><label for="file" class="button__text"> Select file </label><ion-icon name="document-attach-outline"></ion-icon
-                  ></span>
-                </button>-->
-                <!---->
                 <span id="file-name" class="file-name">No file selected</span>
               </div>
+
+              <!-- Load Button-->
               <div>
                 <button
                   v-on:click="submitFile()"
@@ -186,21 +180,19 @@
                   class="button load"
                   style="margin-right: 20px"
                 >
-                  <span class="button__text">Load</span>
-                  <span class="button__icon"
-                    ><ion-icon name="cloud-upload-outline"></ion-icon
-                  ></span>
+                  <ion-icon name="cloud-upload-outline"></ion-icon
+                  ><label class="button__text">Load</label><i></i>
                 </button>
+
+                <!-- Download all Button-->
                 <button
                   v-on:click="reportStories()"
                   type="button"
                   class="button report"
                   id="report"
                 >
-                  <span class="button__text">Download all</span>
-                  <span class="button__icon"
-                    ><ion-icon name="code-slash-outline"></ion-icon
-                  ></span>
+                  <ion-icon name="cloud-download-outline"></ion-icon
+                  ><label class="button__text">Download all</label><i></i>
                 </button>
               </div>
             </div>
@@ -222,15 +214,14 @@
                   <td>{{ story }}</td>
                   <td>
                     <div>
+                      <!-- Analyze Button-->
                       <button
                         type="button"
                         class="button analyze"
                         @click="toggleAnalyzeStoryModal(story)"
                       >
-                        <span class="button__text">Analyze</span>
-                        <span class="button__icon">
-                          <ion-icon name="analytics-outline"></ion-icon>
-                        </span>
+                        <ion-icon name="analytics-outline"></ion-icon>
+                        <label class="button__text">Analyze</label><i></i>
                       </button>
                     </div>
                   </td>
@@ -326,6 +317,7 @@
           <div class="modal-header">
             <h5 class="modal-title">Story Details</h5>
             <div>
+              <!-- Close Button-->
               <button
                 type="button"
                 class="button close"
@@ -333,10 +325,8 @@
                 @click="closeAnalyzeStoryModal"
                 style="margin-right: 10px"
               >
-                <span class="button__text">Close</span>
-                <span class="button__icon"
-                  ><ion-icon name="close-circle-outline"></ion-icon
-                ></span>
+                <ion-icon name="close-circle-outline"></ion-icon
+                ><label class="button__text">Close</label><i></i>
               </button>
             </div>
           </div>
@@ -381,16 +371,15 @@
             <div v-else class="pt-3 mx-4">No sensitive features suggested</div>
           </div>
           <div class="modal-footer">
+            <!-- Download Button-->
             <button
               v-on:click="reportStory()"
               type="button"
               class="button report"
               id="report"
             >
-              <span class="button__text">Download</span>
-              <span class="button__icon"
-                ><ion-icon name="code-slash-outline"></ion-icon
-              ></span>
+              <ion-icon name="cloud-download-outline"></ion-icon
+              ><label class="button__text">Download</label><i></i>
             </button>
           </div>
         </div>
