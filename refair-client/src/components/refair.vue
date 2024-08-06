@@ -162,13 +162,19 @@
                   class="form-control"
                   @change="handleStoriesUpload($event)"
                 />
+
                 <!---->
+
                 <button type="button" class="button select">
-                  <label for="file" class="button__text"> Select file </label>
-                  <span class="button__icon"
-                    ><ion-icon name="document-attach-outline"></ion-icon
-                  ></span>
+                  <label for="file" class="button__text"> Select file </label
+                  ><i></i>
                 </button>
+
+                <!--<button type="button" class="button select">
+                  <span class="button__icon"
+                    ><label for="file" class="button__text"> Select file </label><ion-icon name="document-attach-outline"></ion-icon
+                  ></span>
+                </button>-->
                 <!---->
                 <span id="file-name" class="file-name">No file selected</span>
               </div>
