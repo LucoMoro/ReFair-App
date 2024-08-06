@@ -166,7 +166,8 @@
                 <!---->
 
                 <button type="button" class="button select">
-                  <label for="file" class="button__text"> Select file </label
+                  <ion-icon name="document-attach-outline"></ion-icon
+                  ><label for="file" class="button__text"> Select file </label
                   ><i></i>
                 </button>
 
