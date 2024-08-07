@@ -329,6 +329,34 @@
       >
         ReFair framework
       </button>
+
+      <br /><br />
+      <!-- ReFair model Github link -->
+      <p class="title_sidebar">REFAIR REPOSITORY</p>
+      <span class="sidebar_element model">
+        <a href="https://github.com/gianwario/ReFair-App" target="_blank">
+          <ion-icon name="logo-github"></ion-icon>ReFair repository</a
+        >
+      </span>
+
+      <br />
+      <!-- Collaborators Github links -->
+      <p class="title_sidebar">COLLABORATORS</p>
+      <span class="sidebar_element collaborators">
+        <a href="https://github.com/DG266" target="_blank">
+          <ion-icon name="logo-github"></ion-icon>Daniele Galloppo</a
+        ></span
+      >
+      <span class="sidebar_element collaborators"
+        ><a href="https://github.com/MarioPeluso" target="_blank">
+          <ion-icon name="logo-github"></ion-icon>Mario Peluso</a
+        ></span
+      >
+      <span class="sidebar_element collaborators">
+        <a href="https://github.com/LucoMoro" target="_blank">
+          <ion-icon name="logo-github"></ion-icon>Luca Morelli</a
+        >
+      </span>
     </div>
 
     <!-- analyze Story Modal -->

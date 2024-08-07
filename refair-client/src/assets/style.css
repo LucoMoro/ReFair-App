@@ -149,11 +149,12 @@
 }
 
 .sidebar {
-  position: relative; /* Necessario per posizionare la linea verticale */
-  padding: 20px;
-  overflow-y: auto;
+  position: fixed; /* Mantiene la sidebar fissa */
+  top: 0;
+  right: 0; /* Allinea la sidebar a destra */
   width: 200px;
-  margin-top: 100px;
+  height: 100vh; /* Occupa tutta l'altezza della viewport */
+  padding: 20px;
 }
 
 .btn_chapter {
@@ -290,6 +291,7 @@
 
 .current {
   color: var(--color-secondary);
+  text-shadow: 0 0 30px var(--color-secondary), 0 0 30px var(--color-secondary);
 }
 
 /************** Button UI *************/
@@ -370,10 +372,41 @@
   left: 80%;
 }
 
+/****************** POP UP ****************************************/
 /****** Pop up titles and style ****/
 
 .pop_up {
   margin-left: 10px;
+}
+
+/************************************ SIDEBAR **********************/
+/********* Collaborators ***********/
+
+.sidebar_element {
+  display: flex;
+  margin-left: 5px;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.sidebar_element:hover a {
+  color: var(--color-secondary);
+}
+
+.sidebar_element:hover ion-icon {
+  color: var(--color-secondary);
+}
+
+.sidebar_element a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--vt-c-divider-dark-1);
+}
+
+.sidebar_element ion-icon {
+  margin-right: 5px; /* Spacing between icon and text */
+  color: var(--vt-c-divider-dark-1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -438,9 +471,14 @@
     background-color: var(--color-background);
   }
 
-  /**************** Pagination ********************/
+  /**************** SIDEBAR ********************/
 
-  /*.input_number:hover {
-    border: 2px solid var(--vt-c-blue);
-  }*/
+  /********* Collaborators *********/
+  .sidebar_element a {
+    color: var(--color-background-mute);
+  }
+
+  .sidebar_element ion-icon {
+    color: var(--color-background-mute);
+  }
 }
