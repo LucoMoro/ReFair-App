@@ -38,6 +38,8 @@
   --color-secondary: #5091cb;
   --color-secondary-dark: #4882b6;
   --color-secondary-light: #6c9bc4;
+
+  --color-disabled-button: grey;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -56,6 +58,8 @@
     --color-secondary: #9e5eda;
     --color-secondary-dark: #8e54c4;
     --color-secondary-light: #a476cf;
+
+    --color-disabled-button: grey;
   }
 }
 

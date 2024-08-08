@@ -1,27 +1,5 @@
 @import "./base.css";
 
-:root {
-  --vt-c-indigo: #566472;
-  --vt-c-indigo-dark-1: #415161;
-  --vt-c-indigo-dark-2: #2c3e50;
-
-  --vt-c-green: #009578;
-  --vt-c-green-dark-1: #008168;
-  --vt-c-green-dark-2: #006e58;
-
-  --vt-c-red: #db3131;
-  --vt-c-red-dark-1: #d81b1b;
-  --vt-c-red-dark-2: #c21818;
-
-  --vt-c-blue: #5091cb;
-  --vt-c-blue-dark-1: #578cbb;
-  --vt-c-blue-dark-2: #4e7ea8;
-
-  --vt-c-sky: #7cb4d5;
-  --vt-c-sky-dark-1: #8bb4cb;
-  --vt-c-sky-dark-2: #6fa2bf;
-}
-
 .button {
   display: inline-flex;
   height: 40px;
@@ -40,7 +18,7 @@
   display: inline-flex;
   align-items: center;
   padding: 0 24px;
-  color: white;
+  color: var(--color-background);
   height: 100%;
 }
 
@@ -82,7 +60,7 @@
 
 .btn_chapter {
   border: none;
-  background-color: var(--vt-c-white);
+  background-color: var(--color-background);
   margin: 2px;
   font-weight: 500;
   position: relative; /* Necessario per posizionare la linea accanto al pulsante */
@@ -129,7 +107,7 @@
 
 .tag {
   display: inline-block;
-  color: var(--vt-c-white);
+  color: var(--color-background);
   opacity: 0;
   transition: opacity 1s ease, color 1s ease;
 }
@@ -164,17 +142,17 @@
 }
 
 .pagination button:disabled {
-  background-color: grey;
+  background-color: var(--color-disabled-button);
   cursor: not-allowed;
 }
 
 .pagination button:disabled:hover {
-  color: grey;
+  color: var(--color-disabled-button);
   box-shadow: none; /* This avoids the box-shadow if the button is disabled */
 }
 
 .pagination button:disabled:hover label {
-  color: grey;
+  color: var(--color-disabled-button);
 }
 
 .pagination .pagination span {
@@ -360,12 +338,7 @@ strong {
 
   /**** Capitolo *****/
   .btn_chapter {
-    background-color: var(--color-background);
     color: var(--color-background-mute);
-  }
-
-  .tag {
-    color: var(--color-background);
   }
 
   /**** Button UI ****/
