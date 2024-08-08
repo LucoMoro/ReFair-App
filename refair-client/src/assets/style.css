@@ -222,7 +222,7 @@
   content: "";
   position: absolute;
   inset: 2px;
-  background-color: var(--vt-c-white);
+  background-color: var(--color-background);
 }
 
 .button label {
@@ -248,7 +248,7 @@
   left: 80%;
   width: 10px;
   height: 4px;
-  background-color: var(--vt-c-white);
+  background-color: var(--color-background);
   transform: translateX(-50%) skewX(325deg);
   transition: 0.3s;
 }
@@ -265,7 +265,7 @@
   left: 20%;
   width: 10px;
   height: 4px;
-  background-color: var(--vt-c-white);
+  background-color: var(--color-background);
   transform: translateX(-50%) skewX(325deg);
   transition: 0.3s;
 }
@@ -333,7 +333,7 @@ strong {
   /*** Pop up ****/
   .modal-content {
     background-color: var(--color-background);
-    color: var(--vt-c-white);
+    color: var(--color-text);
   }
 
   /**** Capitolo *****/
@@ -347,30 +347,8 @@ strong {
     color: var(--color-text);
   }
 
-  .button:hover {
-    background: var(--color-secondary);
-    box-shadow: 0 0 35px var(--color-secondary);
-    color: var(--color-secondary);
-  }
-
-  .button::before {
-    background-color: var(--color-background);
-  }
-
   .button label {
     color: var(--color-text);
-  }
-
-  /*.button:hover label {
-    color: var(--color-secondary);
-  }*/
-
-  .button i::before {
-    background-color: var(--color-background);
-  }
-
-  .button i::after {
-    background-color: var(--color-background);
   }
 
   /**************** SIDEBAR ********************/
