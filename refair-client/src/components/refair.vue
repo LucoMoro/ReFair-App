@@ -71,14 +71,14 @@
               v-model="inputStory"
               placeholder="Inserisci una User Story"
             />
-            <button
-              type="button"
-              class="button analyze"
-              @click="analyzeSingleStory"
-            >
-              <ion-icon name="analytics-outline"></ion-icon>
-              <label class="button__text">Analyze</label>
-            </button>
+            <ButtonComponent
+              :clickHandler="analyzeSingleStory"
+              buttonType="button"
+              buttonClass="button analyze"
+              iconName="analytics-outline"
+              labelClass="button__text"
+              labelText="Analyze"
+            />
           </div>
 
           <table class="table table-hover">
@@ -96,14 +96,14 @@
                 <td>
                   <div>
                     <!-- Analyze Button-->
-                    <button
-                      type="button"
-                      class="button analyze"
-                      @click="toggleAnalyzeStoryModal(story)"
-                    >
-                      <ion-icon name="analytics-outline"></ion-icon>
-                      <label class="button__text">Analyze</label><i></i>
-                    </button>
+                    <ButtonComponent
+                      :clickHandler="() => toggleAnalyzeStoryModal(story)"
+                      buttonType="button"
+                      buttonClass="button analyze"
+                      iconName="analytics-outline"
+                      labelClass="button__text"
+                      labelText="Analyze"
+                    />
                   </div>
                 </td>
               </tr>
