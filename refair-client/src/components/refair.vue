@@ -80,14 +80,14 @@
                 <td>
                   <div>
                     <!-- Analyze Button-->
-                    <button
-                      type="button"
-                      class="button analyze"
-                      @click="toggleAnalyzeStoryModal(story)"
-                    >
-                      <ion-icon name="analytics-outline"></ion-icon>
-                      <label class="button__text">Analyze</label><i></i>
-                    </button>
+                    <ButtonComponent
+                      :clickHandler="() => toggleAnalyzeStoryModal(story)"
+                      buttonType="button"
+                      buttonClass="button analyze"
+                      iconName="analytics-outline"
+                      labelClass="button__text"
+                      labelText="Analyze"
+                    />
                   </div>
                 </td>
               </tr>
