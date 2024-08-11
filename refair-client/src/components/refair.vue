@@ -65,6 +65,22 @@
             </div>
           </div>
 
+          <!-- Single US and analyze button -->
+          <div>
+            <input
+              v-model="inputStory"
+              placeholder="Inserisci una User Story"
+            />
+            <button
+              type="button"
+              class="button analyze"
+              @click="analyzeSingleStory"
+            >
+              <ion-icon name="analytics-outline"></ion-icon>
+              <label class="button__text">Analyze</label>
+            </button>
+          </div>
+
           <table class="table table-hover">
             <thead>
               <tr>
@@ -473,6 +489,7 @@ export default {
       story_tasks: [],
       stories: [],
       file: "",
+      inputStory: "",
       options: {
         chart: {
           id: "vuechart-example",
@@ -575,6 +592,12 @@ export default {
           this.stories = [];
           this.fileLoaded = false; // Imposta false se il caricamento fallisce
         });
+    },
+
+    analyzeSingleStory() {
+      if (this.inputStory) {
+        this.toggleAnalyzeStoryModal(this.inputStory);
+      }
     },
 
     toggleAnalyzeStoryModal(story) {
