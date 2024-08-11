@@ -65,12 +65,12 @@
             </div>
           </div>
 
+          <hr />
           <!-- Single US and analyze button -->
-          <div>
-            <input
-              v-model="inputStory"
-              placeholder="Inserisci una User Story"
-            />
+          <div class="entry_area">
+            <input v-model="inputStory" placeholder="" />
+            <div class="labelline">Enter an US</div>
+
             <ButtonComponent
               :clickHandler="analyzeSingleStory"
               buttonType="button"
@@ -78,6 +78,7 @@
               iconName="analytics-outline"
               labelClass="button__text"
               labelText="Analyze"
+              class="analyze"
             />
           </div>
 
