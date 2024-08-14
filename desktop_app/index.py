@@ -9,6 +9,7 @@ from PIL import Image, ImageTk
 
 from components.user_story_canvas import UserStoryCanvas
 from colors import COLORS 
+from domain_utils import getDomain, getMLTask, feature_extraction
 
 # Variabili globali
 user_story_listbox = None
@@ -96,6 +97,20 @@ def save_as_json():
             json.dump(user_stories, json_file, indent=4)
         messagebox.showinfo(title="Congraturations!", message=f"File correctly saved in: {save_path}")
 
+def analyze(user_story):
+    # Chiama la funzione getDomain e aggiorna la label con il risultato
+    predicted_domain = getDomain(user_story)
+    predicted_task = getMLTask(user_story, predicted_domain)
+    results = feature_extraction(predicted_domain, predicted_task)
+    messagebox.showinfo(title=predicted_domain, message=results)
+
+def validate_entry(*args):
+    entry_content = entry_us.get()
+    if entry_content.strip():  # Se non è vuoto o solo spazi
+        analyze_button.config(state=NORMAL)
+    else:
+        analyze_button.config(state=DISABLED)
+
 def show_frame(frame):
     frame.tkraise()
 
@@ -123,7 +138,7 @@ def show_refair_suggestions():
 root = Tk()
 root.title("ReFair desktop app")
 root.geometry("1100x600")  # Dimensioni della finestra
-root.iconbitmap('desktop_app/icons/right_arrow_icon.ico')
+root.iconbitmap('desktop_app/icons/bill_invoice_shop_icon.ico')
 
 # Path all'icona (modifica il percorso se necessario)
 icon_right_arrow_path = "desktop_app/icons/right_arrow_icon.png"
@@ -214,12 +229,20 @@ save_button = ttk.Button(select_frame, text="Download all", image=cloud_download
 save_button.grid(row=0, column=4, padx=10, pady=10)
 
 ##Entry_frame content
+# Entry
 entry_us = ttk.Entry(entry_frame, width=100)
 entry_us.grid(row=0, column=0, padx=20)
 
-analyze_button = ttk.Button(entry_frame, text="Analyze", image=analytics_outline, compound=LEFT, command=lambda: print(entry_us.get()))
+analyze_button = ttk.Button(entry_frame, text="Analyze", image=analytics_outline, compound=LEFT, command=lambda: analyze(entry_us.get()))
 analyze_button.grid(row=0, column=1)
 
+# Inizialmente disabilita il pulsante
+analyze_button.config(state=DISABLED)
+
+# Configura il controllo dell'entry
+entry_us_var = StringVar()
+entry_us.config(textvariable=entry_us_var)
+entry_us_var.trace_add('write', validate_entry)
 
 ##USs title
 us_title_label = Label (main_content, text="User Stories", background=COLORS['background'], font=('Helvetica', 16))

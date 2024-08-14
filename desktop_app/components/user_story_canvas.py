@@ -1,5 +1,10 @@
 import tkinter as tk
 from tkinter import Scrollbar, Canvas, Frame, Label, Button
+from tkinter import messagebox
+
+from domain_utils import getDomain, getMLTask, feature_extraction
+
+
 
 class UserStoryCanvas(Frame):
     def __init__(self, parent, user_stories, wrap_length=800, *args, **kwargs):
@@ -43,5 +48,9 @@ class UserStoryCanvas(Frame):
             separator = Frame(self.content_frame, height=1, bd=1, relief=tk.SUNKEN, bg="black")
             separator.pack(fill=tk.X, padx=5, pady=5)
 
-    def analyze(self, us):
-        print(f"Analyzing {us}")
+    def analyze(self, user_story):
+        # Chiama la funzione getDomain e aggiorna la label con il risultato
+        predicted_domain = getDomain(user_story)
+        predicted_task = getMLTask(user_story, predicted_domain)
+        results = feature_extraction(predicted_domain, predicted_task)
+        messagebox.showinfo(title=predicted_domain, message=results)
