@@ -568,15 +568,6 @@ export default {
     },
 
     submitFile() {
-      /* Check if the file is an xlsx file
-      if (
-        !this.file ||
-        this.file.name.split(".").pop().toLowerCase() !== "xlsx"
-      ) {
-        alert("This type of file is not supported. Upload an xlsx file.");
-        return;
-      }*/
-
       let formData = new FormData();
       formData.append("stories", this.file);
 
@@ -588,48 +579,26 @@ export default {
         })
         .then((res) => {
           if (typeof res.data.stories === "undefined") {
-            alert(
-              "The file could not be loaded because at least one non-textual element was found in the 'User Story' column."
-            );
+            alert(res.data.motivation);
             this.stories = [];
-            this.fileLoaded = false;
+            this.fileLoaded = false; // Imposta false se il caricamento fallisce
           } else {
-            // Filter stories based on the regex
-            const validStories = res.data.stories.filter((story) =>
-              this.storyRegex.test(story)
-            );
-            const removedStoriesCount =
-              res.data.stories.length - validStories.length;
-
-            // Update the stories with only valid stories
-            this.stories = validStories;
-
-            if (removedStoriesCount > 0) {
-              alert(
-                "The file was loaded successfully, but some user stories did not match the required format and were not included."
-              );
-            }
-
-            // Handle the UI changes if file loaded successfully
             const reportBtn = document.querySelector("#report");
             reportBtn.classList.remove("disabled");
-            this.currentPage = 1; // Reset current page after loading
-            this.fileLoaded = true; // Set true if the load was successful
+            this.stories = res.data.stories;
+            this.currentPage = 1; // Resetta la pagina corrente dopo il caricamento
+            this.fileLoaded = true; // Imposta true se il caricamento ha successo
           }
         })
         .catch(() => {
           this.stories = [];
-          this.fileLoaded = false; // Set false if the load fails
+          this.fileLoaded = false; // Imposta false se il caricamento fallisce
         });
     },
 
     analyzeSingleStory() {
-      if (this.storyRegex.test(this.inputStory)) {
+      if (this.inputStory) {
         this.toggleAnalyzeStoryModal(this.inputStory);
-      } else {
-        alert(
-          "The input story did not match the required format: it must contain at least one non-whitespace character and be less than 1024 characters long."
-        );
       }
     },
 
