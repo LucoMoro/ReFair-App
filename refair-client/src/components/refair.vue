@@ -581,18 +581,34 @@ export default {
           if (typeof res.data.stories === "undefined") {
             alert(res.data.motivation);
             this.stories = [];
-            this.fileLoaded = false; // Imposta false se il caricamento fallisce
+            this.fileLoaded = false;
           } else {
+            // Filter stories based on the regex
+            const validStories = res.data.stories.filter((story) =>
+              this.storyRegex.test(story)
+            );
+            const removedStoriesCount =
+              res.data.stories.length - validStories.length;
+
+            // Update the stories with only valid stories
+            this.stories = validStories;
+
+            if (removedStoriesCount > 0) {
+              alert(
+                "The file was loaded successfully, but some user stories did not match the required format and were not included."
+              );
+            }
+
+            // Handle the UI changes if file loaded successfully
             const reportBtn = document.querySelector("#report");
             reportBtn.classList.remove("disabled");
-            this.stories = res.data.stories;
-            this.currentPage = 1; // Resetta la pagina corrente dopo il caricamento
-            this.fileLoaded = true; // Imposta true se il caricamento ha successo
+            this.currentPage = 1; // Reset current page after loading
+            this.fileLoaded = true; // Set true if the load was successful
           }
         })
         .catch(() => {
           this.stories = [];
-          this.fileLoaded = false; // Imposta false se il caricamento fallisce
+          this.fileLoaded = false; // Set false if the load fails
         });
     },
 
