@@ -491,6 +491,7 @@ export default {
       stories: [],
       file: "",
       inputStory: "",
+      storyRegex: /^(?!\s*$).{1,1024}$/,
       options: {
         chart: {
           id: "vuechart-example",
@@ -596,8 +597,12 @@ export default {
     },
 
     analyzeSingleStory() {
-      if (this.inputStory) {
+      if (this.storyRegex.test(this.inputStory)) {
         this.toggleAnalyzeStoryModal(this.inputStory);
+      } else {
+        alert(
+          "The input story did not match the required format: it must contain at least one non-whitespace character and be less than 1024 characters long."
+        );
       }
     },
 
