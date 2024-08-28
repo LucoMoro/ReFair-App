@@ -568,14 +568,14 @@ export default {
     },
 
     submitFile() {
-      // Check if the file is an xlsx file
+      /* Check if the file is an xlsx file
       if (
         !this.file ||
         this.file.name.split(".").pop().toLowerCase() !== "xlsx"
       ) {
         alert("This type of file is not supported. Upload an xlsx file.");
         return;
-      }
+      }*/
 
       let formData = new FormData();
       formData.append("stories", this.file);
@@ -588,7 +588,9 @@ export default {
         })
         .then((res) => {
           if (typeof res.data.stories === "undefined") {
-            //alert(res.data.motivation);
+            alert(
+              "The file could not be loaded because at least one non-textual element was found in the 'User Story' column."
+            );
             this.stories = [];
             this.fileLoaded = false;
           } else {
