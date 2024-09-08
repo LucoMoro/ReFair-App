@@ -491,7 +491,6 @@ export default {
       stories: [],
       file: "",
       inputStory: "",
-      storyRegex: /^(?!\s*$).{1,1024}$/,
       options: {
         chart: {
           id: "vuechart-example",
